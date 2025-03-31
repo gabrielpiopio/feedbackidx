@@ -4,15 +4,25 @@ import iconStar from "/images/icon-star.svg"
 export function App() {
   const [notaAvaliacao, setNotaAvaliacao] = useState(0)
   const [submited, setSubmited] = useState(false)
+  const [rateNote, setRateNote] = useState(0)
 
   function handleSubmit() {
-    setSubmited(!submited)
+    if (rateNote !== 0) {
+      setSubmited(true)
+      return
+    }
+
+    alert("Please, choose a rate button!")
   }
 
   function handAlterarNotaAvaliacao(nota) {
     setNotaAvaliacao(nota)
 
     console.log(nota)
+  }
+
+  function handleChangeRate(value) {
+    setRateNote(value)
   }
 
   return (
@@ -26,11 +36,11 @@ export function App() {
           <p className="text-light-grey text-sm leading-1 mb-6">Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
     
           <div className="flex justify-between mb-6">
-            <input type="button" value={1} className="bg-dark-blue w-10.5 h-10.5 rounded-full text-sm leading-2 text-medium-grey" onClick={() => handAlterarNotaAvaliacao(1)}/>
-            <input type="button" value={2} className="bg-dark-blue w-10.5 h-10.5 rounded-full text-sm leading-2 text-medium-grey" onClick={() => handAlterarNotaAvaliacao(2)}/>
-            <input type="button" value={3} className="bg-dark-blue w-10.5 h-10.5 rounded-full text-sm leading-2 text-medium-grey" onClick={() => handAlterarNotaAvaliacao(3)}/>
-            <input type="button" value={4} className="bg-dark-blue w-10.5 h-10.5 rounded-full text-sm leading-2 text-medium-grey" onClick={() => handAlterarNotaAvaliacao(4)}/>
-            <input type="button" value={5} className="bg-dark-blue w-10.5 h-10.5 rounded-full text-sm leading-2 text-medium-grey" onClick={() => handAlterarNotaAvaliacao(5)}/>
+            <input type="button" value={1} className="bg-dark-blue w-10.5 h-10.5 rounded-full text-sm leading-2 text-medium-grey focus:bg-medium-grey focus:text-white" onClick={() => handAlterarNotaAvaliacao(1)}/>
+            <input type="button" value={2} className="bg-dark-blue w-10.5 h-10.5 rounded-full text-sm leading-2 text-medium-grey focus:bg-medium-grey focus:text-white" onClick={() => handAlterarNotaAvaliacao(2)}/>
+            <input type="button" value={3} className="bg-dark-blue w-10.5 h-10.5 rounded-full text-sm leading-2 text-medium-grey focus:bg-medium-grey focus:text-white" onClick={() => handAlterarNotaAvaliacao(3)}/>
+            <input type="button" value={4} className="bg-dark-blue w-10.5 h-10.5 rounded-full text-sm leading-2 text-medium-grey focus:bg-medium-grey focus:text-white" onClick={() => handAlterarNotaAvaliacao(4)}/>
+            <input type="button" value={5} className="bg-dark-blue w-10.5 h-10.5 rounded-full text-sm leading-2 text-medium-grey focus:bg-medium-grey focus:text-white" onClick={() => handAlterarNotaAvaliacao(5)}/>
           </div>
         
           <button className="bg-orange w-full py-3 uppercase text-sm rounded-3xl tracking-1 font-bold" onClick={handleSubmit}>Submit</button>
