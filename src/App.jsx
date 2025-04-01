@@ -1,5 +1,5 @@
 import {useState} from "react"
-import illustrationThankYou from "/images/illustration-thank-you.svg"
+import illustrationThankYou from "../images/illustration-thank-you.svg"
 import iconStar from "/images/icon-star.svg"
 
 export function App() {
@@ -8,7 +8,7 @@ export function App() {
   const [rateNote, setRateNote] = useState(0)
 
   function handleSubmit() {
-    if (rateNote !== 0) {
+    if (notaAvaliacao !== 0) {
       setSubmited(true)
       return
     }
